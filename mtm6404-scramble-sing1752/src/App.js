@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-/**********************************************
- * STARTER CODE
- **********************************************/
-
-/**
- * shuffle()
- * Shuffle the contents of an array
- *   depending the datatype of the source
- * Makes a copy. Does NOT shuffle the original.
- * Based on Steve Griffith's array shuffle prototype
- * @Parameters: Array or string
- * @Return: Scrambled Array or string, based on the provided parameter
- */
 function shuffle(src) {
   const copy = [...src];
   const length = copy.length;
@@ -29,10 +16,6 @@ function shuffle(src) {
   }
   return copy;
 }
-
-/**********************************************
- * YOUR CODE BELOW
- **********************************************/
 
 const words = ["react", "javascript", "coding", "frontend", "backend", "webdev", "html", "css", "node", "redux"];
 
@@ -107,21 +90,21 @@ function App() {
 
   if (gameOver) {
     return (
-      <div>
+      <div className="container">
         <h1>Game Over</h1>
-        <p>Points: {points}</p>
+        <p className="score">Points: {points}</p>
         <button onClick={startNewGame}>Play Again</button>
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>Scramble</h1>
-      <p>Points: {points}</p>
-      <p>Strikes: {strikes}</p>
-      <p>Passes: {passes}</p>
-      <p>Scrambled Word: {scrambledWord}</p>
+      <p className="score">Points: {points}</p>
+      <p className="score">Strikes: {strikes}</p>
+      <p className="score">Passes: {passes}</p>
+      <p className="scrambled-word">Scrambled Word: {scrambledWord}</p>
       <form onSubmit={handleGuess}>
         <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
         <button type="submit">Guess</button>
